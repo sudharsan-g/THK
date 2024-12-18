@@ -1,0 +1,47 @@
+<carousel [showIndicators]="showIndicator">
+    @for(slide of image;track image.image){
+
+    <slide class="banner">
+        <div class="banner-hero">
+
+            <img class="banner-image" [src]="slide.image" alt="banner" />
+            <h1 class="modelname">{{slide["name "] }}</h1>
+            <h1 class="modelname modelname-stroke">{{slide["name "] }}</h1>
+
+        </div>
+        <div class="container">
+            <div class="row banner-sell">
+                <div class="col-lg-1 col-sm-1 col-md-1 col-2"></div>
+                <div class="col-lg-5 col-sm-5 col-md-5 col-12 buy-desc">
+                    <span class="buy-name">Buy your Own {{slide["name "] }} at </span>
+                    &nbsp;
+                    <span class="bannerPrice"> {{formatToIndianCurrency(slide["oprice "])}}</span>
+
+                </div>
+                <div class="col-lg-3 col-sm-3 col-md-3 col-3">
+                    <button class="bannerBtn">Buy Now</button>
+                </div>
+                <div class="col-lg-3 col-3"></div>
+            </div>
+
+            <div class="row banner-sellm">
+
+                <div class="col-12 buy-desc">
+                    <div class="buy-name">Buy your Own {{slide["name "]}} at </div>
+                    <div class="bannerPrice"> {{formatToIndianCurrency(slide["oprice "])}}</div>
+                </div>
+                <div>
+                    <button class="bannerBtn">Buy Now</button>
+                </div>
+            </div>
+
+        </div>
+
+    </slide>
+
+
+
+
+    }
+
+</carousel>

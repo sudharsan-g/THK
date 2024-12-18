@@ -1,0 +1,150 @@
+<!-- <section class="text-gray-600 body-font overflow-hidden"> -->
+<!--  -->
+<div style="background-color: #F5F7F8;padding: 1%; " class="container ">
+
+
+    <div style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin:1%" class="row">
+        <div class="col-lg-4 col-12">
+            <p-carousel class="" showIndicators="false" showNavigators="false" [value]="products" [numVisible]="1"
+                [numScroll]="1" [circular]="false"
+                [style]="{'padding':'1vw','textAlign':'center','justifyContent':'center'}" autoplayInterval="3000">
+
+                <ng-template let-product pTemplate="item">
+
+                    <img class="product-item-content"
+                        style="justify-content:center;object-fit: contain;padding: 1vw;align-items: center;height:100%"
+                        [src]="product.image">
+
+
+
+                </ng-template>
+            </p-carousel>
+        </div>
+
+
+        <div style="align-content: center;" class="col-lg-8 col-12">
+            <h2 class="category">{{category}}
+            </h2>
+            <h1 class="product">{{product}}
+            </h1>
+
+            <p class="desc">
+                {{desc}}</p>
+
+            <div class="flex">
+                <table style="margin-top: 1vh;margin-bottom: 2vh;">
+                    <tr>
+                        <th>Colour:</th>
+                        <td>{{selectedcolor}}</td>
+                    </tr>
+                    <tr>
+                        <th>Size:</th>
+                        <td>{{displaysize}}</td>
+                    </tr>
+                    <tr>
+                        <th>Warrenty:</th>
+                        <td>{{types["warrenty"]}}</td>
+                    </tr>
+                    <tr>
+                        <th>Phone Condition:</th>
+                        <td>{{types["condition"]}}</td>
+                    </tr>
+                    <tr>
+                        <th>What's Included:</th>
+                        <td>Phone Only</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="margin-top: 0.5vh;margin-bottom: 1vh;" class="flex">
+                <span class="mr-3 ohead">Color</span>
+                <div *ngFor="let color of colors;let i = index">
+                    @if(i===0){
+
+                    <div class="active {{color.name}} cround" (click)="onClick(i,color.name) "
+                        [style]="{'background':color.code}">
+                    </div>
+
+
+                    }
+                    @else{
+                    <div (click)="onClick(i,color.name)" class="{{color['name']}} cround"
+                        [style]="{'background':color.code}">
+                    </div>
+                    }
+
+                </div>
+
+            </div>
+            <div style="margin-bottom: 0.5vw;" class="flex">
+                <span style="text-align: center;align-content: center;" class="mr-3 ohead">Size</span>
+                <div *ngFor="let size of selectedsize;let i = index">
+
+                    <button class="sizebtn"
+                        [ngStyle]="{'background-color': activeButtonIndex === i ? '#0088ce': 'white','color':activeButtonIndex ===i ? 'white':'black'}"
+                        (click)="onButtonClick(i,size)">
+                        {{ size }}
+                    </button>
+
+
+                </div>
+            </div>
+
+            <div>
+                <input class="checkpin" type="input" placeholder="Enter the Pincode to check availability">
+                <button (click)="checkpinclick()" class="checkbtn">Check</button>
+                <ng-template #successModal let-modal>
+
+
+                    <div style="display: flex;">
+                        <mat-icon class="material-icons"
+                            style="font-size: 5vw;width: 10vw;padding-bottom: 10vh;text-align: center;color: green;">
+                            check_circle</mat-icon>
+                        <div class="modal-title" style="text-align: center;align-content: center;">
+                            <h4 class="">We can deliver it to your location</h4>
+                        </div>
+                    </div>
+
+
+                </ng-template>
+                <ng-template #failModal let-modal style="width: 100vw;;">
+
+
+                    <div style="display: flex;">
+                        <mat-icon class="material-icons"
+                            style="font-size: 5vw;width: 10vw;padding-bottom: 10vh;text-align: center;color: red;">
+                            cancel</mat-icon>
+                        <div class="modal-title" style="align-content: center;">
+                            <span class="">We couldn't deliver to the specified location.</span>
+                            <h2 style="font-weight: bold;text-align: center;">You can try another location</h2>
+                        </div>
+                    </div>
+
+
+                </ng-template>
+
+
+            </div>
+            <div style="margin-top: 1vh;margin-bottom: 1vh;margin-right: 1vw;justify-content: space-between;"
+                class="flex">
+                <span class="price title-font font-medium text-2xl text-gray-900">
+                    {{formatToIndianCurrency(price)}}</span>
+
+                <button
+                    class="cartbtn flex ml-auto text-white border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+                    (click)="addtocart()">
+
+                    <div class="cart">Add to Cart</div>
+                    <div class="success">Go to Cart</div>
+                    <mat-icon class="material-icons cart-icon">shopping_cart</mat-icon>
+                    <mat-icon class="material-icons cart-bag">shopping_bag</mat-icon>
+                </button>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

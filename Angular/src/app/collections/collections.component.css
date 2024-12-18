@@ -1,0 +1,168 @@
+
+@media (min-width:600px) {
+  .product-title {
+    padding-left: 2rem;
+    font-size: 3vw;
+    font-weight: bold;
+    color: #28282B;
+    font-family: 'Montserrat-ExtraBold', sans-serif;
+  }
+  .product-description {
+    padding-left: 2vw;
+    font-size: 1vw;
+    color: #979797;
+  }
+  .product-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #F5F7F8;
+    height: 250px;
+  }
+  .whole-col{
+    width: 80%;
+  }
+  .appleCol{
+    height: 53%;
+    position:relative;
+    /* top: 1%; */
+    left:10%; 
+    padding-left: 10%;
+    z-index: 5;
+    object-fit: contain;
+  
+  }
+
+  .accesoriesCol{
+    padding-left: 10%;
+    width: 80%;
+    object-fit: contain;
+  
+  }
+  .caseCol{
+    height: 60%;
+    position:relative;
+    top: 20%;
+    left:20%;
+    text-align: center;
+    padding-left: 10%;
+    z-index: 5;
+  }
+  .androidCol{
+    padding-left: 10%;
+    position:relative;
+    top: 22%;
+    left:15%;
+     z-index: 5;
+    height: 55%;
+  }
+  .cdown{
+    padding-top: 5%; 
+  }
+
+  .product-container:hover{
+    background-color: #0088cc;
+    .product-title{
+        color: #fff;
+        animation: fade-in-animation 0.5s ease-out;
+    }
+    .product-description{
+        color: #282828;
+    }
+    
+
+  }
+   .collection-head{
+    /* margin-left:1%;margin-right:1%;color:#28282B;font-family: 'Montserrat-Black';font-size: 1.8vw; */
+    font-family: 'poppins-bold ';font-size: 5vw;justify-content: stretch;text-align: center;
+   }
+}
+@media (max-width:600px) {
+  .collection-head{
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+    font-family: 'poppins-bold';font-size: 8vw;font-weight:bold;justify-content: stretch;text-align: center;
+  }
+  .cdown{
+    padding-top: 5%; 
+  }
+
+  .product-title {
+    padding-left: 0.5rem;
+    
+    align-items: center;
+    align-content: center;
+    font-size: 6.2vw;
+    font-weight: bold;
+    color: #28282B;
+    z-index: 6;
+    font-family: 'Poppins', sans-serif;
+  }
+  .product-description {
+    padding-left: 0.5rem;
+    width: 23vw;
+    z-index: 6;
+    font-size:2.3vw;
+    color: #979797;
+  }
+  .product-container {
+    display: flex; 
+    z-index: 5;
+    background-color: #F5F7F8;
+    height: 15vh;
+    width: 46vw;
+  }
+  
+
+  .appleCol{
+    
+    position: relative;
+    left:2.5vw;
+   
+   
+  }
+
+  .accessoriesCol{
+    
+    position: relative;
+    width: 50vw;
+    bottom: 1.2vw;
+    left:3vw;
+    rotate: 10deg;
+   
+  }
+ 
+  .caseCol{
+    
+    position: relative;
+    width: 50vw;
+    left:5vw;
+    top:4vw;
+    text-align: center;
+   
+   
+  }
+
+  .androidCol{
+    
+    position: relative;
+    width: 20vw;
+    margin-left: 1vw;
+    left:5vw;
+    top:1vw;
+   
+  }
+  
+  
+}
+
+@keyframes fade-in-animation {
+  from{
+      opacity: 0;
+  }
+  to{
+      opacity: 1;
+  }
+}
+
+

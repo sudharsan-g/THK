@@ -1,0 +1,21 @@
+@media (min-width:600px) {
+    .tag-line-strt{
+        text-align: center !important;
+        font-size: 1.2vw;
+        color: white;
+        padding: 0.5rem;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }   
+}
+
+@media (max-width:600px) {
+    .tag-line-strt{
+        text-align: center !important;
+        font-size: 3.5vw;
+        color: white;
+        padding: 0.5rem;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }   
+}

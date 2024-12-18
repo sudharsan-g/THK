@@ -1,0 +1,79 @@
+<div style="padding-top: 10%;"></div>
+<mat-tab-group mat-align-tabs="center" mat-stretch-tabs="false" class="custom-tab-group">
+    <mat-tab label="New Launches">
+        <div class="tab-content">
+            <p-carousel [showIndicators]="showindicators" [value]="newlaunches" [numVisible]="visible"
+                [circular]="false" [autoplayInterval]="1000">
+                <ng-template let-newlaunches pTemplate="item">
+
+                    <img class="prod-img" [src]="newlaunches.image">
+
+                    <div class="lstcardbox">
+                        <h2 class="product-title">
+                            {{newlaunches["name "]}}
+                        </h2>
+                        <p class="description">
+                            Lorem
+                            ipsum dolor sit amet, consectetur adipiscing elit.
+                            Mauris aliquet
+                            augue. Sed molestie urna eu leo aliquet pulvinar. Vivamus in rutrum elit, sed congue
+                            nunc.
+                        </p>
+                        <h1 class="product-price">
+                            {{formatToIndianCurrency(newlaunches["oprice "])}}
+                        </h1>
+                        <span>
+                            <button onClick="console.log('Gello;')" class="detailbtn">
+                                View Details
+                            </button>
+
+                        </span>
+
+                    </div>
+
+
+
+                </ng-template>
+            </p-carousel>
+
+
+
+
+        </div>
+    </mat-tab>
+    <mat-tab label="BestSellers">
+        <div class="tab-content">
+            <p-carousel [showIndicators]="showindicators" [value]="bestsellers" [numVisible]="3" [numScroll]="3"
+                [circular]="false" autoplayInterval="1000" [style]="{}">
+                <ng-template let-product pTemplate="item">
+
+                    <img [src]="product.image" class="prod-img">
+
+                    <div class="lstcardbox">
+                        <h2 class="product-title">
+                            {{product["name "]}}
+                        </h2>
+                        <p class="description">
+                            {{product["desc"]}}
+                        </p>
+                        <h1 class="product-price">
+                            {{formatToIndianCurrency(product["oprice "])}}
+                        </h1>
+                        <span>
+                            <button onClick="console.log('Gello;')" class="detailbtn">
+                                View Details
+                            </button>
+
+                        </span>
+
+
+                    </div>
+
+
+
+
+                </ng-template>
+            </p-carousel>
+        </div>
+    </mat-tab>
+</mat-tab-group>

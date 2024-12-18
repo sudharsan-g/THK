@@ -1,0 +1,45 @@
+<mat-toolbar style="background-color: #F5F7F8 ;">
+  <a routerLink="/home"> Tech House </a>
+  <div style="flex: 1;"> </div>
+
+  <a id="home" mat-button routerLink="/product-listing" [queryParams]="{'product': 'Apple','filter':'Mac'}">Mac</a>
+  <a id="about" mat-button routerLink="/product-listing" [queryParams]="{'product': 'Apple','filter':'iPad'}">iPad</a>
+  <a id="contact" mat-button routerLink="/product-listing"
+    [queryParams]="{'product': 'Apple','filter':'iPhone'}">iPhone</a>
+  <a id="contact" mat-button routerLink="/product-listing"
+    [queryParams]="{'product': 'Apple','filter':'Watch'}">Watch</a>
+  <a id="contact" mat-button routerLink="/product-listing"
+    [queryParams]="{'product': 'Apple','filter':'Airpods'}">Airpods</a>
+  <a id="contact" mat-button routerLink="/product-listing"
+    [queryParams]="{'product': 'Accessories','filter':'Accessories'}">Accessories</a>
+  <a id="contact" mat-button routerLink="/product-listing"
+    [queryParams]="{'product': 'Android','filter':'Android'}">Android</a>
+
+  <a routerLink="/cart">
+    <mat-icon style="position: relative;top: 0.5vh;" class="material-icons" mat-raised-button matBadge="{{badge}}"
+      matBadgePosition="after" [matBadgeHidden]="badge == 0" matBadgeColor="accent">shopping_bag</mat-icon>
+  </a>
+
+
+  <button class="menu-toggle" mat-icon-button>
+    <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav style="width: 100%" mode="side" #sidenav position="end">
+    <mat-nav-list>
+      <a routerLink="/" mat-list-item>Home</a>
+      <a mat-list-item>About Us</a>
+      <a mat-list-item>Contact</a>
+
+    </mat-nav-list>
+
+
+  </mat-sidenav>
+
+
+
+  <router-outlet></router-outlet>
+
+</mat-sidenav-container>

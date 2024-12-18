@@ -1,0 +1,15 @@
+@media (min-width:600px) {
+    .menu-toggle{
+        display: none;
+    }
+}
+@media (max-width:600px) {
+    
+    #home, #about, #contact, #search{display:none;}
+}
+
+.mat-badge-accent {
+    --mat-badge-background-color: #0088ce !important;
+    --mat-badge-text-color: white !important;
+    opacity: 0.8 !important;
+  }

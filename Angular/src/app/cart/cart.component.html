@@ -1,0 +1,280 @@
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 class="content-head">My
+                    Cart</h1>
+            </div>
+
+            @if(showalert){
+            <div class="col-lg-4 alert">
+
+                <div class="col-lg-1" style="background-color: brown; width: 100%;"></div>
+                <div class="col-lg-12">
+                    <span class="pi pi-exclamation-circle"></span>
+
+                    <span>Sorry, There are no more items in stock to be added</span>
+
+                    <span class="pi pi-times "></span>
+                </div>
+            </div>
+            }
+
+
+
+        </div>
+
+
+
+
+        <div class="col-12 col-lg-8 col-sm-8 col-md-8 total-content">
+
+            <div id="style-2" class="cart-content">
+                <div class="container">
+
+                    @for(product of products;track products.product; let index = $index){
+                    <div style="padding: 0;" class="container">
+                        <div class="row cart-box">
+
+                            <div class="col-lg-3 col-3 img-box">
+                                <img class="prod-cart" [src]="product.image">
+                            </div>
+                            <div class="col-lg-3 col-3 cart-2">
+
+                                <h2 class="cart-prod">{{product.product}}</h2>
+
+                                <p class="cart-opt">Colour:
+                                    {{product.color}} | Size: {{product.size}}
+                                </p>
+
+                                <h5 class="cart-desc">
+                                    {{product.desc}}</h5>
+                            </div>
+                            <div class="col-lg-3 col-3 cart-3">
+                                <span class="cart-qty">Qty</span>
+                                &nbsp;
+
+                                <div class="quantity">
+                                    <button (click)="minus_qty(product,index)"
+                                        class="quantity__minus"><span>-</span></button>
+                                    <input name="quantity" type="text" class="quantity__input" value={{product.qty}}
+                                        disabled>
+                                    <button (click)="plus_qty(product,index)"
+                                        class="quantity__plus"><span>+</span></button>
+                                </div>
+                            </div>
+                            <div style="justify-content: space-around; text-align: center;align-content: center;"
+                                class="col-lg-2 col-2">
+                                <span class="cart-price">{{formatToIndianCurrency((product.price *
+                                    product.qty))}}</span>
+
+                            </div>
+                            <div style="justify-content: space-around; text-align: center;align-content: center;"
+                                class=" cartcls col-lg-1 col-1">
+                                <button (click)="closeproduct(product,index)" class=""
+                                    style="color: #dfdfdf;justify-content: center;display: flex;"><mat-icon
+                                        class="cart-cls2 material-icons">close</mat-icon></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    }
+
+
+                </div>
+            </div>
+            <div style="margin-top:1%;" class="form-max">
+                <div class="row">
+                    <div class="col-lg-3 col-3"></div>
+
+                    <div style="align-content: center;text-align: center;" class="col-lg-3 col-3">
+                        <span class="tt">
+                            Grand Total
+                        </span>
+                    </div>
+                    <div style="justify-content: end;text-align: center; padding: 1%;" class="col-lg-3 col-3">
+
+                        <span class="tt-amt">
+                            {{formatToIndianCurrency(tt)}}
+                        </span>
+                    </div>
+
+
+                    <div style="align-content: center;text-align: center; " class="col-lg-3 col-2 paybtn">
+
+                        <button class="cartpay">Pay</button>
+
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:1%;" class="form-min">
+                <div class="row">
+                    <div class="col-lg-3 col-3"></div>
+
+                    <div style="align-content: center;text-align: center;" class="col-lg-3 col-3">
+                        <span class="tt">
+                            Grand Total
+                        </span>
+                    </div>
+                    <div style="justify-content: end;text-align: center; padding: 1%;" class="col-lg-3 col-3">
+
+                        <span class="tt-amt">
+                            {{formatToIndianCurrency(tt)}}
+                        </span>
+                    </div>
+
+
+                    <div style="align-content: center;text-align: center; " class="col-lg-3 col-2 paybtn">
+                        <button style="background-color: #0088ce;" (click)="verifydoc()" class="cartpay">Verify</button>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-3 col-12 content-info form-max">
+
+            <div class="container front">
+                <div class="row">
+                    <div
+                        style="margin-top: 5%;font-size: 1vw;margin-right: 0.5vw;font-family: 'Poppins';font-size: 1.8vh;">
+                        <h1 class="title">General Information</h1>
+                    </div>
+                    <p-inputGroup class="ic">
+
+                        <p-inputGroupAddon>
+                            <i class="pi pi-user"></i>
+                        </p-inputGroupAddon>
+                        <input class="form form-name" pInputText placeholder="Name" />
+                    </p-inputGroup>
+
+                    <p-inputGroup [style]="{'height': '20vh','marginTop':'5%'}">
+                        <p-inputGroupAddon>
+                            <i class="pi pi-map-marker"></i>
+                        </p-inputGroupAddon>
+
+                        <textarea style="justify-content: center;align-content: center;" class="form form-address"
+                            pInputText placeholder="Address"></textarea>
+                    </p-inputGroup>
+
+                    <p-inputGroup class="ic">
+                        <p-inputGroupAddon>
+                            <i class="pi pi-building"></i>
+                        </p-inputGroupAddon>
+                        <input class="form form-landmark" pInputText placeholder="Landmark" />
+                    </p-inputGroup>
+
+                    <p-inputGroup class="ic">
+                        <p-inputGroupAddon>
+                            <i class="pi pi-envelope"></i>
+                        </p-inputGroupAddon>
+                        <input class="form form-pincode" pInputText placeholder="Zipcode" />
+                    </p-inputGroup>
+
+                    <br>
+                    <p-inputGroup class="ic">
+
+                        <p-inputGroupAddon>
+                            <i>+91</i>
+
+                        </p-inputGroupAddon>
+
+                        <input class="form form-number" pInputText placeholder="Whatsapp Number" />
+                        <p-inputGroupAddon>
+                            <i class="pi pi-whatsapp"></i>
+
+                        </p-inputGroupAddon>
+                    </p-inputGroup>
+                </div>
+                <br>
+                <div class="row">
+                    <div style="align-content: center;text-align: center;" class="col-lg-12 col-12">
+
+                        <button class="ver-btn" (click)="verify_info()">Verify</button>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="container back">
+                <div class="back2">
+                    <div style=" width: 200px;margin: 3px auto;">
+                        <svg xmlns="http://www.w3.org/2000/svg" style="opacity: 1;" class="svg-success"
+                            viewBox="0 0 24 24">
+                            <g stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+                                <circle class="success-circle-outline" cx="12" cy="12" r="11.5" />
+                                <circle class="success-circle-fill" cx="12" cy="12" r="11.5" />
+                                <polyline class="success-tick" points="17,8.5 9.5,15.5 7,13"
+                                    style="stroke-dashoffset: 31px;" />
+                            </g>
+                        </svg>
+                    </div>
+                    <h1 class="suc-txt">Success</h1>
+                    <p class="suc-p">Your OTP has been
+                        verified. You may
+                        now proceed to
+                        payment</p>
+                </div>
+                <button (click)="backbtn()" style="text-align: end;display: flex;padding-top: 1vh;">
+                    <mat-icon>keyboard_backspace</mat-icon></button>
+
+                <div style="align-content: center;
+                justify-content: center;
+                text-align: center;
+                display: block;height: 70vh;">
+                    <div style="align-content: center;
+                    justify-content: center;
+                    text-align: center;
+                    display: block;">
+                        <label style=" font-family: 'Poppins';font-weight: 800; margin-right: 0.5vw;font-size: 1.5vw;"
+                            for="username">Enter
+                            the
+                            OTP</label>
+                        <br>
+                        <span style="font-size: 1vw;">(OTP has been send to your whatsapp number)</span>
+                    </div>
+                    <br>
+                    <div style="align-content: center;
+                    justify-content: center;
+                    text-align: center;
+                    display: block;">
+                        <p-inputOtp class="otp-box" style="display: inline-flex;margin-right: 0.5vw" [(ngModel)]="otp"
+                            [integerOnly]="true" />
+                    </div>
+                    <br>
+                    <div style="align-content: center;
+                    justify-content: center;
+                    text-align: center;
+                    display: block;">
+                        <button (click)="otpverify()"
+                            style=" font-size: 1vw; width:5vw;background-color: #0088ce;color: white;border-radius: 20px;padding: 1%;">Submit</button>
+                    </div>
+                    <br>
+                    <div style="align-content: center;
+                    justify-content: center;
+                    text-align: center;
+                    display: block;">
+                        <span>Didn't Recieve the OTP? </span>
+                        <div class="counter" style="display:inline;color:#0088ce;font-weight: 600;">
+                            <span>00:</span><span class="sec">00</span>
+                        </div>
+                        <button style="display: none;color: #0088ce;" class="resend-btn" (click)="verify_info()">
+                            Resend
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
